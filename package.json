@@ -1,0 +1,39 @@
+{
+  "name": "epichron",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "@types/sinon": "^17.0.2",
+    "chai": "^5.0.0",
+    "mocha": "^10.2.0",
+    "prettier": "^3.1.1",
+    "sinon": "^17.0.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 70,
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  }
+}
