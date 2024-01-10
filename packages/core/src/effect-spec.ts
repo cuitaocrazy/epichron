@@ -54,7 +54,7 @@ export type EffectDescriptorWithArgs<
 export type EffectDescriptor<F extends BaseEffect = BaseEffect> =
   EffectDescriptorWithArgs<F>['effectDescriptor']
 
-export function createSagaEffectCaller<F extends BaseEffect>(
+export function createEffectCaller<F extends BaseEffect>(
   effect: F,
   probe: Probe<F>,
   rollback: Rollback<F>,
@@ -73,39 +73,5 @@ export function createSagaEffectCaller<F extends BaseEffect>(
       funcArgs: funcArgs,
       effectDescriptor: effectDescriptor,
     }
-  }
-}
-
-export type SystemParameters = {
-  sagaId: string
-  currentStepId: string
-  historyRepo: any
-  eventRepo: any
-}
-
-export function getSystemParameters(): EffectDescriptorWithArgs<
-  () => Promise<SystemParameters>
-> {
-  return {
-    [effectSymbol]: 'GetSystemParameters',
-    funcArgs: [],
-    effectDescriptor: {
-      name: 'getSystemParameters',
-      effect: async () => {
-        throw new Error(
-          "getSystemParameters's effect should not be called",
-        )
-      },
-      probe: async () => {
-        throw new Error(
-          "getSystemParameters's probe should not be called",
-        )
-      },
-      rollback: async () => {
-        throw new Error(
-          "getSystemParameters's rollback should not be called",
-        )
-      },
-    },
   }
 }
